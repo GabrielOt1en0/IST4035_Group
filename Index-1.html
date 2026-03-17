@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+  padding: 20px;
+}
+
+/* SLIDESHOW */
+.slideshow-container {
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+  height:auto;
+  width:auto;
+}
+
+/* Wrap image + overlays */
+.slide-wrapper {
+  position: relative;
+}
+
+/* IMAGE */
+.slide-wrapper img {
+  height: fit-content;
+  width: 100%;
+  display: block;
+}
+
+/* OVERLAY (ingredients) */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  opacity: 0;
+  transition: 0.4s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* TITLE OVERLAY */
+.overlay-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* SHOW overlay on hover */
+.slide-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+/* NAV BUTTONS */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+}
+
+.next { right: 0; }
+
+/* DOTS */
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 5px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.active {
+  background: #717171;
+}
+
+/* TAB SYSTEM */
+.tab { 
+  display: none; 
+}
+.tab-container {
+   width: auto;
+   margin: auto;
+   background: inherit;
+   padding: 20px;
+   border-radius: 8px;
+        }
+
+.tab-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-buttons button {
+  padding: 10px 20px;
+  border: none;
+  color: rgb(38, 29, 29);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab-buttons button.active {
+  background: #555;
+}
+.tab-buttons :hover {
+  transform:translate(-10px,-10px);
+  box-shadow:1px 1px  #103867;
+}
+</style>
+</head>
+
+<body>
+
+<div class="tab-container">
+
+<div class="tab-buttons">
+  <button class="tab-link " onclick="openTab(event,'about')">About</button>
+  <button class="tab-link " onclick="openTab(event,'articles')">Articles</button>
+  <button class="tab-link" onclick="openTab(event,'recipes')">Recipes</button>
+</div>
+
+<div id="about" class="tab" style="display:block;"> 
+  <p>Welcome to our food and nutrition blog is a  space dedicated to helping you build a healthier, more balanced lifestyle through the power of good food. Here, you’ll discover practical nutrition tips, easy and delicious recipes, and science-backed insights that make healthy eating simple and enjoyable. Whether you’re looking to improve your daily meals, understand what your body needs, or explore new ingredients, this blog is designed to guide and inspire you every step of the way.</p>
+</div>
+
+<div id="articles" class="tab" style="display:block;">
+  <p>Placeholder</p>
+</div>
+
+<div id="recipes" class="tab">
+
+<div class="slideshow-container">
+
+<!-- SLIDE 1 -->
+<div class="mySlides">
+  <div class="slide-wrapper">
+    <img src="https://i.pinimg.com/736x/4e/c4/8e/4ec48e33267c97cfdb5c0a631bb00831.jpg">
+
+    <div class="overlay">
+      <h3>Ingredients</h3>
+      <ol>
+        <li>Bananas</li>
+        <li>Strawberries</li>
+        <li>Honey</li>
+        <li>Milk or yogurt</li>
+      </ol>
+    </div>
+
+    <div class="overlay-title">Banana Strawberry Smoothie</div>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="mySlides">
+  <div class="slide-wrapper">
+    <img src="https://i.pinimg.com/736x/e1/74/e0/e174e0e4cf4943a0583c997dc8f1a8b2.jpg">
+
+    <div class="overlay">
+      <h3>Ingredients</h3>
+      <ol>
+        <li>Lettuce</li>
+        <li>Tomatoes</li>
+        <li>Cucumbers</li>
+        <li>Carrots</li>
+        <li>Olive Oil</li>
+      </ol>
+    </div>
+
+    <div class="overlay-title">Fresh Vegetable Salad</div>
+  </div>
+</div>
+<!-- SLIDE 3 -->
+<div class="mySlides">
+  <div class="slide-wrapper">
+    <img src="https://i.pinimg.com/1200x/b6/d5/7d/b6d57d930fce2df0f615551f2f5770a2.jpg">
+
+    <div class="overlay">
+      <h3>Ingredients</h3>
+      <ol>
+        <li>Oats</li>
+        <li>Milk</li>
+        <li>Banana slices</li>
+        <li>Berries</li>
+        <li>Honey</li>
+      </ol>
+    </div>
+
+    <div class="overlay-title">Oatmeal</div>
+  </div>
+</div>
+<!-- SLIDE 4 -->
+<div class="mySlides">
+  <div class="slide-wrapper">
+    <img src="https://i.pinimg.com/1200x/e0/c7/7f/e0c77fc17e62f244391ff686035adab9.jpg">
+
+    <div class="overlay">
+      <h3>Ingredients</h3>
+      <ol>
+        <li>Chicken breast</li>
+        <li>Garlic</li>
+        <li>Lemon juice</li>
+        <li>Olive oil</li>
+        <li>Spices</li>
+      </ol>
+    </div>
+
+    <div class="overlay-title">Grilled chicken</div>
+  </div>
+</div>
+<!-- SLIDE 5 -->
+<div class="mySlides">
+  <div class="slide-wrapper">
+    <img src="https://i.pinimg.com/1200x/84/bf/3c/84bf3cf37ca5f24a9122de67f2cb05a1.jpg">
+
+    <div class="overlay">
+      <h3>Ingredients</h3>
+      <ol>
+        <li>Pasta</li>
+        <li>Tomatoes</li>
+        <li>Bell peppers</li>
+        <li>Onion</li>
+        <li>Olive oil</li>
+      </ol>
+    </div>
+
+    <div class="overlay-title">Vegetable pasta</div>
+  </div>
+</div>
+<!-- NAV -->
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<!-- DOTS -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class= "dot"onclick="currentslide(4)"></span>
+  <span class= "dot"onclick="currentslide(5)"></span>
+</div>
+
+</div>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  let tabs = document.getElementsByClassName("tab");
+  let links = document.getElementsByClassName("tab-link");
+
+  for (let t of tabs) t.style.display = "none";
+  for (let l of links) l.classList.remove("active");
+
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
+/* SLIDESHOW */
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) { showSlides(slideIndex += n); }
+function currentSlide(n) { showSlides(slideIndex = n); }
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+
+  for (let s of slides) s.style.display = "none";
+  for (let d of dots) d.classList.remove("active");
+
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].classList.add("active");
+}
+</script>
+
+</body>
+</html>
